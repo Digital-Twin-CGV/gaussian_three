@@ -9,48 +9,43 @@
       body {
         margin: 0;
       }
-
-      .minimap_container {
+      .driving_container {
         display: flex;
         flex-direction: column;
       }
 
-      .minimap_statebar {
+      .driving_statebar {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-      }
+        background-color: #ff4747;
+        padding: 20px;
 
-      .minimap_complete {
-        background-color: #e25c55;
-        color: white;
-        padding: 10px 20px;
-
-        border-radius: 10px;
         cursor: pointer;
       }
 
-      #minimap_gaussian {
+      .driving_map {
+        width: 100%;
+      }
+
+      #driving_gaussian {
         width: 100%;
       }
     </style>
   </head>
 
   <body>
-    <div class="minimap_container">
-      <div class="minimap_map">
+    <div class="driving_container">
+      <div class="driving_map">
         <img
-          id="minimap_gaussian"
+          id="driving_gaussian"
           alt="gaussian_img"
           src="assets/images/minimap.jpg"
         />
       </div>
-      <div class="minimap_statebar">
-        <div>미니맵에서 원하는 위치를 선택해주세요</div>
-        <div class="minimap_complete" onClick="openDemo('gaussian')">
-          선택완료
-        </div>
-      </div>
+    </div>
+    <div onClick="openDemo('minimap')" class="driving_statebar">
+      <div>안내중지</div>
     </div>
     <script>
       function openDemo(page) {

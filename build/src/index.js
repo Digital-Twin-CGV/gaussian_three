@@ -1,5 +1,3 @@
-import { SplatLoader } from './loaders/splat/SplatLoader.js';
-import { KSplatLoader } from './loaders/ksplat/KSplatLoader.js';
 import * as LoaderUtils from './loaders/Utils.js';
 import { SplatBuffer } from './loaders/SplatBuffer.js';
 import { SplatParser } from './loaders/splat/SplatParser.js';

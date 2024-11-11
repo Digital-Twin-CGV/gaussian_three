@@ -1,6 +1,4 @@
-import { PlyParser } from './loaders/ply/PlyParser.js';
 import { PlayCanvasCompressedPlyParser } from './loaders/ply/PlayCanvasCompressedPlyParser.js';
-import { PlyLoader } from './loaders/ply/PlyLoader.js';
 import { SplatLoader } from './loaders/splat/SplatLoader.js';
 import { KSplatLoader } from './loaders/ksplat/KSplatLoader.js';
 import * as LoaderUtils from './loaders/Utils.js';

@@ -7,7 +7,7 @@ const globals = {
 
 export default [
     {
-        input: './src/index.js',
+        input: './build/src/index.js',
         treeshake: false,
         external: [
             'three'

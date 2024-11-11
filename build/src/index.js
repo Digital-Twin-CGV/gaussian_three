@@ -1,4 +1,3 @@
-import { PlayCanvasCompressedPlyParser } from './loaders/ply/PlayCanvasCompressedPlyParser.js';
 import { SplatLoader } from './loaders/splat/SplatLoader.js';
 import { KSplatLoader } from './loaders/ksplat/KSplatLoader.js';
 import * as LoaderUtils from './loaders/Utils.js';
@@ -11,7 +10,6 @@ import { DropInViewer } from './DropInViewer.js';
 import { OrbitControls } from './OrbitControls.js';
 import { AbortablePromise } from './AbortablePromise.js';
 import { SceneFormat } from './loaders/SceneFormat.js';
-import { WebXRMode } from './webxr/WebXRMode.js';
 import { RenderMode } from './RenderMode.js';
 import { LogLevel } from './LogLevel.js';
 import { SceneRevealMode } from './SceneRevealMode.js';

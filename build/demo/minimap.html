@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>3D Gaussian Splat Viewer</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .minimap_container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .minimap_statebar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .minimap_complete {
+        background-color: #e25c55;
+        color: white;
+        padding: 10px 20px;
+
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      #minimap_gaussian {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="minimap_container">
+      <div class="minimap_map">
+        <img
+          id="minimap_gaussian"
+          alt="gaussian_img"
+          src="assets/images/minimap.jpg"
+        />
+      </div>
+      <div class="minimap_statebar">
+        <div>미니맵에서 원하는 위치를 선택해주세요</div>
+        <div class="minimap_complete" onClick="openDemo('gaussian')">
+          선택완료
+        </div>
+      </div>
+    </div>
+    <script>
+      function openDemo(page) {
+        let url = page + ".html";
+
+        window.location = url;
+      }
+    </script>
+  </body>
+</html>

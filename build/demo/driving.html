@@ -9,32 +9,44 @@
       body {
         margin: 0;
       }
-      .main-container {
-        width: 100vw;
-        height: 100vh;
+      .driving_container {
+        display: flex;
+        flex-direction: column;
+      }
 
+      .driving_statebar {
         display: flex;
         justify-content: center;
         align-items: center;
-      }
-      .large-button {
-        text-align: center;
-        background-color: #96e6ff;
-        padding: 50px;
-        font-size: 30px;
-        border-radius: 20px;
+        background-color: #ff4747;
+        padding: 20px;
+
         cursor: pointer;
+      }
+
+      .driving_map {
+        width: 100%;
+      }
+
+      #driving_gaussian {
+        width: 100%;
       }
     </style>
   </head>
 
   <body>
-    <div class="main-container">
-      <button class="large-button" onclick="openDemo('minimap')">
-        시작하려면 화면을 터치해주세요
-      </button>
+    <div class="driving_container">
+      <div class="driving_map">
+        <img
+          id="driving_gaussian"
+          alt="gaussian_img"
+          src="assets/images/minimap.jpg"
+        />
+      </div>
     </div>
-
+    <div onClick="openDemo('minimap')" class="driving_statebar">
+      <div>안내중지</div>
+    </div>
     <script>
       function openDemo(page) {
         let url = page + ".html";

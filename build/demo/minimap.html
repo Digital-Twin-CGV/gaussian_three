@@ -13,38 +13,43 @@
       .minimap_container {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+      }
+
+      #minimap_gaussian {
+        width: 100%;
+        height: auto;
+        max-height: 90vh; /* 상태 바 높이 */
+        object-fit: contain;
       }
 
       .minimap_statebar {
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 10px 0;
       }
 
       .minimap_complete {
         background-color: #e25c55;
         color: white;
-        padding: 10px 20px;
-
+        padding: 15px 60px;
         border-radius: 10px;
         cursor: pointer;
-      }
-
-      #minimap_gaussian {
-        width: 100%;
       }
     </style>
   </head>
 
   <body>
     <div class="minimap_container">
-      <div class="minimap_map">
-        <img
-          id="minimap_gaussian"
-          alt="gaussian_img"
-          src="assets/images/minimap.jpg"
-        />
-      </div>
+      <img
+        id="minimap_gaussian"
+        alt="gaussian_img"
+        src="assets/images/minimap.jpg"
+      />
       <div class="minimap_statebar">
         <div>미니맵에서 원하는 위치를 선택해주세요</div>
         <div class="minimap_complete" onClick="openDemo('gaussian')">
@@ -55,7 +60,6 @@
     <script>
       function openDemo(page) {
         let url = page + ".html";
-
         window.location = url;
       }
     </script>

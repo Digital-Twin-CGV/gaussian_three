@@ -36,7 +36,6 @@
       .gaussian_complete {
         position: absolute;
         right: 0;
-
         display: flex;
       }
 
@@ -45,7 +44,6 @@
         margin: 0 10px;
         background-color: #c0c0c0;
         border-radius: 20px;
-
         cursor: pointer;
       }
 
@@ -56,18 +54,18 @@
   </head>
 
   <body>
-    <div className="gaussian_container">
-      <div className="gaussian_statebar">
+    <div class="gaussian_container">
+      <div class="gaussian_statebar">
         <div>드래그하여 정확한 위치를 선택해주세요</div>
-        <div className="gaussian_complete">
+        <div class="gaussian_complete">
           <div
-            className="gaussian_complete_btn"
+            class="gaussian_complete_btn"
             id="gaussian_complete_btn_cancel"
             onClick="openDemo('minimap')"
           >
             취소
           </div>
-          <div className="gaussian_complete_btn" onClick="openDemo('driving')">
+          <div class="gaussian_complete_btn" onClick="openDemo('driving')">
             선택 완료
           </div>
         </div>
@@ -86,19 +84,80 @@
         initialCameraLookAt: [1.52976, 2.27776, 1.65898],
         sphericalHarmonicsDegree: 2,
       });
-      let path = "assets/data/garden/test1.splat";
-      viewer
-        .addSplatScene(path, {
-          progressiveLoad: false,
-        })
-        .then(() => {
-          viewer.start();
-        });
+
+      // Adding two splat scenes as described
+      viewer.addSplatScenes([{
+        'path': "assets/data/garden/test1.splat",
+        'splatAlphaRemovalThreshold': 20
+      },
+      {
+        'path': "assets/data/garden/test2.splat",
+        'rotation': [-0.14724434, -0.0761755, 0.1410657, 0.976020],
+        'scale': [1.5, 1.5, 1.5],
+        'position': [-3, -2, -3.2]
+      }])
+      .then(() => {
+        viewer.start();
+      });
+
+      // 카메라 이동 속도 설정
+      const moveSpeed = 0.1;
+
+
+      document.addEventListener('keydown', function(event) {
+      // 카메라 이동 벡터 초기화
+      let moveDirection = new THREE.Vector3(0, 0, 0);
+
+      // W, S, E, Q, A, D 키 입력에 따른 카메라 이동
+      if (event.key === 'w' || event.key === 'W') {
+          moveDirection.z = -moveSpeed;  // W: 앞으로
+      } else if (event.key === 's' || event.key === 'S') {
+          moveDirection.z = moveSpeed;   // S: 뒤로
+      } else if (event.key === 'e' || event.key === 'E') {
+          moveDirection.y = moveSpeed;   // E: 위로
+      } else if (event.key === 'q' || event.key === 'Q') {
+          moveDirection.y = -moveSpeed;  // Q: 아래로
+      } else if (event.key === 'a' || event.key === 'A') {
+          moveDirection.x = -moveSpeed;  // A: 왼쪽
+      } else if (event.key === 'd' || event.key === 'D') {
+          moveDirection.x = moveSpeed;   // D: 오른쪽
+      }
+
+      // 이동 벡터를 카메라의 로컬 좌표계로 변환
+      moveDirection.applyQuaternion(viewer.camera.quaternion);
+
+      // 변환된 벡터를 카메라에 적용
+      viewer.camera.position.add(moveDirection);
+      });
+
+
+      //카메라 이동 함수
+      document.addEventListener('keydown', function(event) {
+          // 카메라 이동 벡터 초기화
+          let moveDirection = new THREE.Vector3(0, 0, 0);
+
+          // W, S, E, Q, A, D 키 입력에 따른 카메라 이동
+          if (event.key === 'w' || event.key === 'W') {
+              moveDirection.z = -moveSpeed;  // W: 앞으로
+          } else if (event.key === 's' || event.key === 'S') {
+              moveDirection.z = moveSpeed;   // S: 뒤로
+          } else if (event.key === 'e' || event.key === 'E') {
+              moveDirection.y = moveSpeed;   // E: 위로
+          } else if (event.key === 'q' || event.key === 'Q') {
+              moveDirection.y = -moveSpeed;  // Q: 아래로
+          } else if (event.key === 'a' || event.key === 'A') {
+              moveDirection.x = -moveSpeed;  // A: 왼쪽
+          } else if (event.key === 'd' || event.key === 'D') {
+              moveDirection.x = moveSpeed;   // D: 오른쪽
+          }
+
+          // 이동 벡터를 카메라에 적용
+          viewer.camera.position.add(moveDirection);
+      });
     </script>
     <script>
       function openDemo(page) {
         let url = page + ".html";
-
         window.location = url;
       }
     </script>

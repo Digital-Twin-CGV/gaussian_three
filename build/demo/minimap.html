@@ -81,6 +81,17 @@
       markerCurrent.style.left = '10%';
       markerCurrent.style.top = '50%';
 
+
+      //========현재 위치 마커 x,y값으로 직접 지정할때 사용 위는 임시============
+      // function setCurrentMarkerPosition(x, y) {
+      //   // `x`와 `y`는 minimap 기준으로 지정된 좌표입니다.
+      //   markerCurrent.style.left = `${x}px`;
+      //   markerCurrent.style.top = `${y}px`;
+      // }
+      // // 초기 marker_current 위치 설정 (예: 10%, 50%)
+      // setCurrentMarkerPosition(background.offsetWidth * 0.1, background.offsetHeight * 0.5);
+      //=====================================================================
+
       // 마커 생성 함수
       function addDestinationMarker(x, y) {
         // 기존 마커가 있다면 삭제
